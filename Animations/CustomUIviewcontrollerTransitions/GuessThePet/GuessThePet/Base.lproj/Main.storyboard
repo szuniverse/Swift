@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hfP-u1-adH">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Card View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="CardViewController" id="BYZ-38-t0r" customClass="CardViewController" customModule="GuessThePet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0d9-YX-VeH">
+                                <rect key="frame" x="46.5" y="93.5" width="281.5" height="500"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ToY-Mi-6tS">
+                                        <rect key="frame" x="119.5" y="239.5" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.50196078431372548" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ToY-Mi-6tS" firstAttribute="centerX" secondItem="0d9-YX-VeH" secondAttribute="centerX" id="FaR-Tl-kMY"/>
+                                    <constraint firstItem="ToY-Mi-6tS" firstAttribute="centerY" secondItem="0d9-YX-VeH" secondAttribute="centerY" id="l07-FW-3H8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0d9-YX-VeH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1dg-ax-Xvf"/>
+                            <constraint firstItem="0d9-YX-VeH" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Isd-Gv-GeS"/>
+                            <constraint firstItem="0d9-YX-VeH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="M61-cZ-9nZ"/>
+                            <constraint firstItem="0d9-YX-VeH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="lw5-gT-6Vh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardView" destination="0d9-YX-VeH" id="R4B-8H-3wI"/>
+                        <outlet property="titleLabel" destination="ToY-Mi-6tS" id="oit-Fy-iir"/>
+                        <segue destination="GJk-MC-LXb" kind="presentation" identifier="revealSegue" id="Ry4-4C-sSM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="681" y="216"/>
+        </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="FbN-kH-WyR">
+            <objects>
+                <viewController storyboardIdentifier="RevealViewController" id="GJk-MC-LXb" customClass="RevealViewController" customModule="GuessThePet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qzy-8N-rVI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CB5-Bu-Kqr">
+                                <rect key="frame" x="149.5" y="623" width="75" height="30"/>
+                                <state key="normal" title="Start Over!"/>
+                                <connections>
+                                    <action selector="dismissPressedWithSender:" destination="GJk-MC-LXb" eventType="touchUpInside" id="DnS-B9-4ie"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EEQ-3c-eGF">
+                                <rect key="frame" x="0.0" y="133" width="375" height="482"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Gb-pq-fMV">
+                                <rect key="frame" x="166" y="20" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EEQ-3c-eGF" firstAttribute="trailing" secondItem="DPb-CN-tTM" secondAttribute="trailing" id="0kc-eo-5He"/>
+                            <constraint firstItem="6Gb-pq-fMV" firstAttribute="centerX" secondItem="DPb-CN-tTM" secondAttribute="centerX" id="IhS-O6-lPq"/>
+                            <constraint firstItem="6Gb-pq-fMV" firstAttribute="top" secondItem="DPb-CN-tTM" secondAttribute="top" id="J7L-s4-VCo"/>
+                            <constraint firstItem="CB5-Bu-Kqr" firstAttribute="centerX" secondItem="DPb-CN-tTM" secondAttribute="centerX" id="Nvh-6a-sgW"/>
+                            <constraint firstItem="EEQ-3c-eGF" firstAttribute="top" secondItem="6Gb-pq-fMV" secondAttribute="bottom" constant="92" id="Tm3-wF-P1S"/>
+                            <constraint firstItem="EEQ-3c-eGF" firstAttribute="leading" secondItem="DPb-CN-tTM" secondAttribute="leading" id="Y6n-2C-Vkd"/>
+                            <constraint firstItem="DPb-CN-tTM" firstAttribute="bottom" secondItem="CB5-Bu-Kqr" secondAttribute="bottom" constant="14" id="fTE-8F-4NN"/>
+                            <constraint firstItem="CB5-Bu-Kqr" firstAttribute="top" secondItem="EEQ-3c-eGF" secondAttribute="bottom" constant="8" id="uar-ej-diP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DPb-CN-tTM"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="EEQ-3c-eGF" id="0tK-5t-4Ja"/>
+                        <outlet property="titleLabel" destination="6Gb-pq-fMV" id="BAH-yl-iSD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="isa-Sx-Zzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1434" y="217"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="JrC-dZ-eVD">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="hfP-u1-adH" customClass="PageViewController" customModule="GuessThePet" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mEi-Hf-XG3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-76" y="211"/>
+        </scene>
+    </scenes>
+</document>

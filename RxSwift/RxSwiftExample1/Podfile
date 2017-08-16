@@ -1,0 +1,17 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '9.0'
+use_frameworks!
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+project 'source/RxSwiftExample.xcodeproj'
+
+def shared_pods
+    pod 'RxSwift'
+    pod 'RxCocoa'
+end
+
+target "RxSwiftExample" do 
+    shared_pods
+end
