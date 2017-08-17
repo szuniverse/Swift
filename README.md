@@ -1,2 +1,6 @@
 # Swift
-This is my backup repository from my tutorials, what I did in the past.
+This repo contains Swift related tutorials, 
+- iOS animations
+- software architectures
+- algorithms 
+and so many tricky things Edit
