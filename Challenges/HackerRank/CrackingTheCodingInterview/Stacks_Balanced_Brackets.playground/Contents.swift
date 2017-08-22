@@ -3,6 +3,7 @@
 import UIKit
 
 // https://www.hackerrank.com/challenges/ctci-balanced-brackets/problem
+// https://www.hackerrank.com/challenges/balanced-brackets/problem
 
 //import Foundation
 //
@@ -109,10 +110,14 @@ func isBalanced(_ str: String) -> String {
             
         }
         
-        if leftBr1Count < 0 || leftBr1Count < 0 || leftBr1Count < 0 {
+        if leftBr1Count < 0 || leftBr2Count < 0 || leftBr3Count < 0 {
             return "NO"
         }
         
+    }
+    
+    if leftBr1Count != 0 || leftBr2Count != 0 || leftBr3Count != 0 {
+        return "NO"
     }
     
     return "YES"
@@ -127,5 +132,5 @@ func isBalanced(_ str: String) -> String {
 
 //
 //isBalanced("[](){()}")
-isBalanced("{[(])}")
+isBalanced("[{")
 
