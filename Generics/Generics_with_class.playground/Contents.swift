@@ -4,61 +4,64 @@ import UIKit
 
 class Object {}
 class AObject: Object {
-    func desc() {
+    func deepDesc() {
         print("A")
     }
 }
 class BObject: Object {
-    func desc() {
+    func deepDesc() {
         print("B")
     }
 }
 
-protocol ViewProtocol {}
-
-class Presenter<View: ViewProtocol, T: Object> {
+class StorageService<T> {
     
-    func value() -> Presenter<View, Object> {
-        return self as! Presenter<View, Object>
-    }
-    
-    func desc() {
-        print("T desc")
-    }
-    
-    lazy var pres = { return T.self }()
-}
-
-
-class BasePresenter<View: ViewProtocol> {
-    
-//    let presenter: Presenter<T>!
-    
-    let _presenter: () -> Presenter<View, Object>
-    var presenter: Presenter<View, Object> { return _presenter() }
-//    init<T: Flavor>(thing: Thing<T>) {
-//        _value = { return thing.value }
-//    }
-
-    init<T>(thing: Presenter<View, T>) {
-        _presenter = thing.value
+    func numberOf() -> Int {
+        if T.self == AObject.self {
+            return 99
+        }
+        return 1
     }
 }
 
-class ViewController: ViewProtocol {}
-//var pr: Presenter<Object>!
-//pr = Presenter<AObject>
-//pr = Presenter<BObject>
+class Presenter<T: Object> {
+    
+    var service = StorageService<T>()
+    
+    func numberOfValami() -> Int {
+        return service.numberOf()
+    }
+}
 
-let d1 = BasePresenter<ViewController>(thing: Presenter<ViewController, AObject>.init())
-let d2 = BasePresenter<ViewController>(thing: Presenter<ViewController, BObject>.init())
 
-//print(d1.presenter.pres)
-//print(d2.presenter.pres)
+class BasePresenter {
 
-//let d2 = BasePresenter(thing: Presenter<BObject>.init())
-var dict = [String: BasePresenter<ViewController>]()
-dict["d1"] = d1
-dict["d2"] = d2
-//print(dict)
+    let presenter: Any
+
+    init<T>(thing: Presenter<T>) {
+        presenter = thing
+    }
+}
+
+class ViewController {
+    
+    let d1 = BasePresenter(thing: Presenter<BObject>.init())
+    let currentType = AObject.self
+    
+    func didLoad() {
+//        let d2 = BasePresenter<ViewController>(thing: Presenter<ViewController, BObject>.init())
+//        var dict = [String: BasePresenter<ViewController>]()
+//        dict["d1"] = d1
+//        dict["d2"] = d2
+        print(type(of: currentType))
+        print((d1.presenter as! Presenter<BObject>).numberOfValami())
+    }
+}
+
+
+
+
+
+let v = ViewController()
+v.didLoad()
 
